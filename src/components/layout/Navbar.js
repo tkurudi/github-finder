@@ -4,8 +4,10 @@ export class Navbar extends Component {
     render() {
         return (
             <nav className='navbar bg-primary'>
-                <h1>Navbar</h1>
-                <i className='fab fa-github'></i>
+                <h1>
+                <i className={this.props.icon}></i>
+                    {this.props.title}</h1>
+                
             </nav>
         )
     }
