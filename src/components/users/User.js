@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react';
+import Spinner from '../layout/Spinner';
+import {Link} from 'react-router-dom';
 
 export class User extends Component {
 
@@ -14,10 +16,19 @@ export class User extends Component {
                  hireable } = this.props.user;
 
                  const {loading} = this.props;
+        if(loading) return <Spinner/>
         return (
-            <div>
-                {name}
+            <Fragment>
+                <Link to='/' className='btn btn-light'>Back to Search</Link>
+                Hireable: {' '}
+        {hireable ? <i className="fa fa-check text-success"/> : <i className="fas fa-times-circle text-danger" /> }
+           <div className='card grid-2'>
+            <div className='all-center'>
+                    <img src={avatar_url} className="round-img" alt="" style={{width: '150px'}}/>
             </div>
+           
+           </div>
+            </Fragment>
         )
     }
 }
